@@ -77,13 +77,13 @@ public class PlayerController : MonoBehaviour
         //rb.AddForce(movement * speed);
         
         Vector3 dir = Vector3.zero;
-        dir.x = -Input.acceleration.y;
-        dir.z = Input.acceleration.x;
+        dir.x = Input.acceleration.x;
+        dir.z = Input.acceleration.y;
         if (dir.sqrMagnitude > 1)
             dir.Normalize();
-        
+
         dir *= Time.deltaTime;
-        transform.Translate(dir * speed);
+        transform.Translate(dir * speed, Space.World);
 
 
         // Change speed, color, and transparency based on player state
